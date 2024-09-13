@@ -5,6 +5,8 @@
  * @package iwpdev/theme
  */
 
-include_once __DIR__ . '/vendor/autoload.php';
+use Iwpdev\Theme\Main;
 
+require_once __DIR__ . '/vendor/autoload.php';
 
+new Main();
