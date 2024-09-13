@@ -51,7 +51,7 @@ class Main {
 		wp_enqueue_script( 'iwp_scroll_smoother', $url . '/assets/ScrollSmoother.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_scroll_trigger', $url . '/assets/ScrollTrigger.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_slick', $url . '/assets/slick.min.js', [ 'jquery' ], self::IWP_VERSION, true );
-		wp_enqueue_script( 'iwp_main', $url . '/assets/js/main' . $min . '.js', [ 'jquery' ], self::IWP_VERSION, true );
+		wp_enqueue_script( 'iwp_build', $url . '/assets/js/build' . $min . '.js', [ 'jquery' ], self::IWP_VERSION, true );
 
 		wp_enqueue_script( 'html5shiv', '//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', [], '3.7.0', false );
 		wp_enqueue_script( 'respond', '//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', [], '1.4.2', false );
