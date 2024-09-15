@@ -15,7 +15,7 @@ $post_term = wp_get_post_terms( $id_post, 'category' );
 	if ( has_post_thumbnail( $id_post ) ) {
 		the_post_thumbnail( 'post_thumbnail' );
 	} else {
-		printf( '<img src="%s" alt="%s" />', 'https://placehold.co/411x231', __( 'No Image', 'iwpdev' ) );
+		printf( '<img src="%s" alt="%s" />', esc_url( 'https://placehold.co/411x231' ), esc_html__( 'No Image', 'iwpdev' ) );
 	}
 	?>
 	<div class="desc">

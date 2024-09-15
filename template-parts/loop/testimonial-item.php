@@ -14,7 +14,7 @@ $avatar         = wp_get_attachment_image( carbon_get_post_meta( $testimonial_id
 		if ( ! empty( $avatar ) ) {
 			echo wp_kses_post( $avatar );
 		} else {
-			printf( '<img src="%s" alt="%s">', 'https://ui-avatars.com/api/?name=John+Doe', __( 'No Image', 'iwpdev' ) );
+			printf( '<img src="%s" alt="%s">', esc_url( 'https://ui-avatars.com/api/?name=John+Doe' ), esc_html__( 'No Image', 'iwpdev' ) );
 		}
 		?>
 		<div class="desc">
