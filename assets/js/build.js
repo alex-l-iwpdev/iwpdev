@@ -10,7 +10,6 @@ jQuery( document ).ready( function( $ ) {
 			effects: true
 		} );
 	}
-
 	var itemsT = gsap.utils.toArray( '.portfolio-item, .top' );
 	var itemsR = gsap.utils.toArray( '.right' );
 	var itemsL = gsap.utils.toArray( '.left' );
@@ -51,7 +50,7 @@ jQuery( document ).ready( function( $ ) {
 	if ( menuChevron.length ) {
 		menuChevron.children( 'a' ).after( chevronEl );
 	}
-
+	;
 	var testimonials = $( '.testimonial-items' );
 	if ( testimonials.length ) {
 		testimonials.slick( {
@@ -61,7 +60,7 @@ jQuery( document ).ready( function( $ ) {
 			slidesToShow: 3
 		} );
 	}
-
+	;
 	var formEl = $( 'input, textarea' );
 	formEl.focus( function() {
 		$( this ).parent().addClass( 'focus' );

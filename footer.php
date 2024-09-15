@@ -9,23 +9,36 @@
 <footer>
 	<div class="container">
 		<div class="row align-items-center">
-			<div class="col-auto"><a class="logo-wrap" href="/"><img src="img/logo.svg" alt=""></a></div>
+			<div class="col-auto"><?php the_custom_logo(); ?></div>
 			<div class="col">
-				<ul class="menu">
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Portfolio</a></li>
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">About us</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
+				<?php
+				if ( has_nav_menu( 'footer_menu' ) ) {
+					wp_nav_menu(
+						[
+							'theme_location' => 'footer_menu',
+							'container'      => '',
+							'menu_class'     => 'menu',
+							'echo'           => true,
+							'fallback_cb'    => 'wp_page_menu',
+							'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						]
+					);
+				}
+				?>
 			</div>
 			<div class="col-auto">
-				<ul class="soc">
-					<li class="icon-clutch"><a href="#"> </a></li>
-					<li class="icon-up-work"><a href="#"></a></li>
-					<li class="icon-linkedin"><a href="#"></a></li>
-				</ul>
+				<?php
+				wp_nav_menu(
+					[
+						'menu'        => 'Social',
+						'container'   => '',
+						'menu_class'  => 'soc',
+						'echo'        => true,
+						'fallback_cb' => 'wp_page_menu',
+						'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					]
+				);
+				?>
 			</div>
 		</div>
 		<div class="row">

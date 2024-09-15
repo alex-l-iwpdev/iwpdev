@@ -27,7 +27,9 @@
         "php-coveralls/php-coveralls": "^2.4"
     },
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "htmlburger/carbon-fields": "dev-development"
+    },
     "scripts": {
         "phpcs": "vendor/bin/phpcs --colors --standard=phpcs.xml"
     }

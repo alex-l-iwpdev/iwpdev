@@ -7,6 +7,9 @@
 
 namespace Iwpdev\Theme;
 
+use Carbon_Fields\Carbon_Fields;
+use Iwpdev\Theme\Blocks\GutenbergBlocks;
+
 /**
  * Main class file.
  */
@@ -30,8 +33,18 @@ class Main {
 	 * @return void
 	 */
 	private function init(): void {
+		// actions.
 		add_action( 'wp_enqueue_scripts', [ $this, 'add_scripts_and_styles' ] );
 		add_action( 'after_setup_theme', [ $this, 'theme_support' ] );
+
+		// filters.
+		add_filter( 'get_custom_logo', [ $this, 'output_logo' ] );
+		add_filter( 'mime_types', [ $this, 'add_support_mimes' ] );
+
+		// Int classes.
+		new GutenbergBlocks();
+		new CPT();
+		new CarbonFields();
 	}
 
 	/**
@@ -47,10 +60,10 @@ class Main {
 			$min = '';
 		}
 
-		wp_enqueue_script( 'iwp_gsap', $url . '/assets/gsap.min.js', [], self::IWP_VERSION, true );
-		wp_enqueue_script( 'iwp_scroll_smoother', $url . '/assets/ScrollSmoother.min.js', [], self::IWP_VERSION, true );
-		wp_enqueue_script( 'iwp_scroll_trigger', $url . '/assets/ScrollTrigger.min.js', [], self::IWP_VERSION, true );
-		wp_enqueue_script( 'iwp_slick', $url . '/assets/slick.min.js', [ 'jquery' ], self::IWP_VERSION, true );
+		wp_enqueue_script( 'iwp_gsap', $url . '/assets/js/gsap.min.js', [], self::IWP_VERSION, true );
+		wp_enqueue_script( 'iwp_scroll_trigger', $url . '/assets/js/ScrollTrigger.min.js', [], self::IWP_VERSION, true );
+		wp_enqueue_script( 'iwp_scroll_smoother', $url . '/assets/js/ScrollSmoother.min.js', [], self::IWP_VERSION, true );
+		wp_enqueue_script( 'iwp_slick', $url . '/assets/js/slick.min.js', [ 'jquery' ], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_build', $url . '/assets/js/build' . $min . '.js', [ 'jquery' ], self::IWP_VERSION, true );
 
 		wp_enqueue_script( 'html5shiv', '//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', [], '3.7.0', false );
@@ -81,5 +94,64 @@ class Main {
 		// images sizes.
 		add_image_size( 'portfolio_thumbnail', 604, 9999, [ 'top', 'center' ] );
 		add_image_size( 'post_thumbnail', 411, 231, [ 'top', 'center' ] );
+
+		// add custom logo.
+		add_theme_support( 'custom-logo', [ 'unlink-homepage-logo' => true ] );
+		add_theme_support( 'post-thumbnails' );
+
+		// carbone fields init.
+		Carbon_Fields::boot();
+	}
+
+	/**
+	 * Change output custom logo.
+	 *
+	 * @param string $html HTML custom logo.
+	 *
+	 * @return string
+	 */
+	public function output_logo( string $html ): string {
+
+		$home  = esc_url( get_bloginfo( 'url' ) );
+		$class = 'logo';
+		if ( has_custom_logo() ) {
+			$logo    = wp_get_attachment_image(
+				get_theme_mod( 'custom_logo' ),
+				'full',
+				false,
+				[
+					'class'    => 'black-logo',
+					'itemprop' => 'logo',
+				]
+			);
+			$content = $logo;
+
+			$content .= '<span class="sr-only">' . get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' ) . '</span>';
+
+			$html = sprintf(
+				'<a href="%s" class="%s" rel="home" itemprop="url">%s</a>',
+				$home,
+				$class,
+				$content
+			);
+
+		}
+
+		return $html;
+	}
+
+	/**
+	 * Add SVG and Webp formats to upload.
+	 *
+	 * @param array $mimes Mimes type.
+	 *
+	 * @return array
+	 */
+	public function add_support_mimes( array $mimes ): array {
+
+		$mimes['webp'] = 'image/webp';
+		$mimes['svg']  = 'image/svg+xml';
+
+		return $mimes;
 	}
 }
