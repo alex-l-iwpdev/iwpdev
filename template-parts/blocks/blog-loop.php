@@ -24,6 +24,19 @@ if ( ! empty( $fields['tags'] ) ) {
 	$post_arg['tag__in'] = $fields['category'];
 }
 
+if ( is_category() ) {
+	$query_obj = get_queried_object();
+
+	//phpcs:ignore
+	$post_arg['tax_query'] = [
+		[
+			'taxonomy' => $query_obj->taxonomy,
+			'field'    => 'term_id',
+			'terms'    => $query_obj->term_id,
+		],
+	];
+}
+
 $articles_object = new WP_Query( $post_arg );
 ?>
 <div
@@ -46,9 +59,25 @@ $articles_object = new WP_Query( $post_arg );
 		}
 		wp_reset_postdata();
 
-		if ( function_exists( 'wp_pagenavi' ) ) {
-			wp_pagenavi( [ 'query' => $articles_object ] );
-		}
+		$big = 999999999;
+		?>
+		<div class="page_navigation_wrapper">
+			<div class="wp-pagination">
+				<?php
+				echo wp_kses_post(
+					paginate_links(
+						[
+							'base'    => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+							'format'  => '?paged=%#%',
+							'current' => max( 1, get_query_var( 'paged' ) ),
+							'total'   => $articles_object->max_num_pages,
+						]
+					)
+				);
+				?>
+			</div>
+		</div>
+		<?php
 	} else {
 		printf( '<p>%s</p>', esc_html__( 'Post not found.', 'iwpdev' ) );
 	}
