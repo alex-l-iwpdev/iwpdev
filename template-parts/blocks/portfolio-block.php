@@ -38,6 +38,7 @@ if ( ! empty( $fields['iwp_portfolio'] ) ) {
 					[ 'portfolio_id' => $portfolio_id ]
 				);
 			}
+			wp_reset_postdata();
 			?>
 		</div>
 		<?php

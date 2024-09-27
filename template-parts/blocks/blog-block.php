@@ -14,6 +14,11 @@ $arg = [
 	'posts_per_page' => $fields['count_output'],
 ];
 
+if ( is_singular( 'post' ) ) {
+	$current_post         = get_the_ID();
+	$args['post__not_in'] = [ $current_post ];
+}
+
 $post_query = new WP_Query( $arg );
 
 if ( $post_query->have_posts() ) {
@@ -33,6 +38,7 @@ if ( $post_query->have_posts() ) {
 				]
 			);
 		}
+		wp_reset_postdata();
 		?>
 		<a
 				class="button icon-chevron-right"

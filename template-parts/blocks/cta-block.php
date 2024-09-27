@@ -8,7 +8,7 @@
 $fields     = $args['fields'];
 $attributes = $args['attributes'];
 ?>
-<div class="form top">
+<div class="form <?php echo esc_attr( $attributes['className'] ?? '' ); ?>">
 	<h2><?php echo wp_kses_post( $fields['title'] ); ?></h2>
 	<p><?php echo wp_kses_post( $fields['sub_title'] ); ?></p>
 	<?php echo do_shortcode( $fields['form_shot_code'] ); ?>

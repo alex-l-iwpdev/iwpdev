@@ -9,6 +9,7 @@ namespace Iwpdev\Theme\Blocks;
 
 use Carbon_Fields\Block;
 use Carbon_Fields\Field;
+use Iwpdev\Theme\Helpers\BackEndHelpers;
 
 /**
  * GutenbergBlocks class file.
@@ -235,6 +236,125 @@ class GutenbergBlocks {
 				get_template_part(
 					'template-parts/blocks/cta',
 					'block',
+					[
+						'attributes' => $attributes,
+						'fields'     => $fields,
+					]
+				);
+			}
+		);
+
+		// Blog loop.
+		Block::make(
+			__( 'Blog loop', 'iwpdev' )
+		)->add_fields(
+			[
+				Field::make( 'text', 'count_to_row', __( 'Count to row', 'iwpdev' ) ),
+				Field::make( 'text', 'posts_per_page', __( 'Post per page', 'iwpdev' ) ),
+				Field::make(
+					'select',
+					'order',
+					__( 'Order', 'iwpdev' )
+				)->set_options(
+					[
+						'ASC'  => __( 'Ascending', 'iwpdev' ),
+						'DESC' => __( 'Descending', 'iwpdev' ),
+					]
+				),
+				Field::make(
+					'multiselect',
+					'category',
+					__( 'Category', 'iwpdev' )
+				)->set_options( BackEndHelpers::get_term_to_select( 'category' ) ),
+				Field::make(
+					'multiselect',
+					'tags',
+					__( 'Tags', 'iwpdev' )
+				)->set_options( BackEndHelpers::get_term_to_select( 'post_tag' ) ),
+				Field::make(
+					'select',
+					'order_by',
+					__( 'Order by', 'iwpdev' )
+				)->set_options(
+					[
+						'ID'              => __( 'ID', 'iwpdev' ),
+						'author'          => __( 'Author', 'iwpdev' ),
+						'title'           => __( 'Title', 'iwpdev' ),
+						'name'            => __( 'Name', 'iwpdev' ),
+						'date'            => __( 'Date', 'iwpdev' ),
+						'modified'        => __( 'Modified', 'iwpdev' ),
+						'parent'          => __( 'Parent', 'iwpdev' ),
+						'rand'            => __( 'Rand', 'iwpdev' ),
+						'comment_count'   => __( 'Comment count', 'iwpdev' ),
+						'post__in'        => __( 'Post in', 'iwpdev' ),
+						'post_name__in'   => __( 'Post name in', 'iwpdev' ),
+						'post_parent__in' => __( 'Post parent in', 'iwpdev' ),
+					]
+				),
+			]
+		)->set_category(
+			'iwpdev',
+			'IWPDEV',
+			'editor-code'
+		)->set_render_callback(
+			function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/blog',
+					'loop',
+					[
+						'attributes' => $attributes,
+						'fields'     => $fields,
+					]
+				);
+			}
+		);
+
+		// Portfolio loop.
+		Block::make(
+			__( 'Portfolio loop', 'iwpdev' )
+		)->add_fields(
+			[
+				Field::make( 'text', 'posts_per_page', __( 'Post per page', 'iwpdev' ) ),
+				Field::make(
+					'select',
+					'order',
+					__( 'Order', 'iwpdev' )
+				)->set_options(
+					[
+						'ASC'  => __( 'Ascending', 'iwpdev' ),
+						'DESC' => __( 'Descending', 'iwpdev' ),
+					]
+				),
+				Field::make(
+					'select',
+					'order_by',
+					__( 'Order by', 'iwpdev' )
+				)->set_options(
+					[
+						'ID'              => __( 'ID', 'iwpdev' ),
+						'author'          => __( 'Author', 'iwpdev' ),
+						'title'           => __( 'Title', 'iwpdev' ),
+						'name'            => __( 'Name', 'iwpdev' ),
+						'date'            => __( 'Date', 'iwpdev' ),
+						'modified'        => __( 'Modified', 'iwpdev' ),
+						'parent'          => __( 'Parent', 'iwpdev' ),
+						'rand'            => __( 'Rand', 'iwpdev' ),
+						'comment_count'   => __( 'Comment count', 'iwpdev' ),
+						'post__in'        => __( 'Post in', 'iwpdev' ),
+						'post_name__in'   => __( 'Post name in', 'iwpdev' ),
+						'post_parent__in' => __( 'Post parent in', 'iwpdev' ),
+					]
+				),
+			]
+		)->set_category(
+			'iwpdev',
+			'IWPDEV',
+			'editor-code'
+		)->set_render_callback(
+			function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/portfolio',
+					'loop',
 					[
 						'attributes' => $attributes,
 						'fields'     => $fields,

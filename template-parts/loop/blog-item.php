@@ -9,7 +9,7 @@ $id_post = $args['id_post'];
 
 $post_term = wp_get_post_terms( $id_post, 'category' );
 ?>
-<div class="blog-item left">
+<div class="blog-item top">
 	<a class="link" href="<?php the_permalink(); ?>"></a>
 	<?php
 	if ( has_post_thumbnail( $id_post ) ) {
