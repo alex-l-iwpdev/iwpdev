@@ -5,10 +5,10 @@
  * @package iwpdev/telegram-bots-listing
  */
 
-
 use Iwpdev\Theme\Main;
 
 $post_id = $args['post_id'];
+
 ?>
 <form class="reviews-form" id="bot-review-form">
 	<div class="dfr">

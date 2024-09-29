@@ -230,10 +230,11 @@ class Main {
 	 * @return false|string
 	 */
 	public function delete_span_el( string $content ) {
-		// Включаем внутренние ошибки для libxml
+		// Enable internal errors for libxml.
 		libxml_use_internal_errors( true );
 
-		$dom                     = new DOMDocument();
+		$dom = new DOMDocument();
+		//phpcs:ignore
 		$dom->preserveWhiteSpace = false;
 
 		$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
@@ -242,7 +243,10 @@ class Main {
 		$spans = $xpath->query( "//span[contains(@class, 'wpcf7-form-control-wrap')]" );
 
 		foreach ( $spans as $span ) {
+			//phpcs:ignore
 			$children = $span->firstChild;
+
+			//phpcs:ignore
 			$span->parentNode->replaceChild( $children, $span );
 		}
 

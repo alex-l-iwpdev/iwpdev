@@ -2,7 +2,7 @@
 /**
  * 404 error template.
  *
- * @package
+ * @package iwpdev/theme
  */
 
 get_header();
@@ -12,7 +12,7 @@ get_header();
 			<div class="row">
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 					<img
-							src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/404.svg' ) ?>"
+							src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/404.svg' ); ?>"
 							alt="404 error image">
 					<h1><?php esc_html_e( 'Page Not Found', 'iwpdev' ); ?></h1>
 					<p><?php echo wp_kses_post( 'Sorry, the page you’re looking for does not exist or has been moved <br>please go back to the	Home page', 'iwpdev' ); ?></p>
