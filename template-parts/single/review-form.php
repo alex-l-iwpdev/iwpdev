@@ -7,7 +7,7 @@
 
 use Iwpdev\Theme\Main;
 
-$post_id = $args['post_id'];
+$article_id = $args['post_id'];
 
 ?>
 <form class="reviews-form" id="bot-review-form">
@@ -33,7 +33,7 @@ $post_id = $args['post_id'];
 				placeholder="<?php esc_html_e( 'Comment', 'iwpdev' ); ?>"></textarea>
 	</div>
 	<?php wp_nonce_field( Main::IWP_REVIEW_ACTION_NAME, 'comment_nonce' ); ?>
-	<button class="button icon-send send-review" data-post_id="<?php echo esc_attr( $post_id ); ?>">
+	<button class="button icon-send send-review" data-post_id="<?php echo esc_attr( $article_id ); ?>">
 		<?php esc_html_e( 'Add Comment', 'iwpdev' ); ?>
 	</button>
 </form>
