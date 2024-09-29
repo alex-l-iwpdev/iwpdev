@@ -362,5 +362,38 @@ class GutenbergBlocks {
 				);
 			}
 		);
+
+		// FAQ block.
+		Block::make(
+			__( 'FAQ', 'iwpdev' )
+		)->add_fields(
+			[
+				Field::make(
+					'complex',
+					'faq_items',
+					__( 'FAQs', 'iwpdev' )
+				)->add_fields(
+					[
+						Field::make( 'text', 'title', __( 'Title', 'iwpdev' ) ),
+						Field::make( 'rich_text', 'description', __( 'Description', 'iwpdev' ) ),
+					]
+				),
+			]
+		)->set_category(
+			'iwpdev',
+			'IWPDEV',
+			'editor-code'
+		)->set_render_callback(
+			function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/faq',
+					'block',
+					[
+						'attributes' => $attributes,
+						'fields'     => $fields,
+					]
+				);
+			}
+		);
 	}
 }

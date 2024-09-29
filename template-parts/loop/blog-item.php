@@ -38,7 +38,9 @@ $post_term = wp_get_post_terms( $id_post, 'category' );
 		<h3><?php the_title(); ?></h3>
 		<ul class="meta">
 			<li class="icon-date">
-				<?php the_date( 'd.m.Y' ); ?>
+				<?php
+				the_time( 'd.m.Y' );
+				?>
 			</li>
 			<li class="icon-eye">
 				<?php

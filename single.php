@@ -14,6 +14,7 @@ $id_post = get_the_ID();
 	<section>
 		<div class="container">
 			<div class="row">
+			    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 				<h1><?php the_title(); ?></h1>
 				<ul class="meta">
 					<li class="icon-date"><?php the_date( 'd.m.Y' ); ?></li>
@@ -67,6 +68,7 @@ $id_post = get_the_ID();
 			<!--					</div>-->
 			<!--				</div>-->
 			<!--			</div>-->
+            </div>
 		</div>
 	</section>
 <?php

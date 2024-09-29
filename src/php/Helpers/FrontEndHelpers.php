@@ -34,4 +34,18 @@ class FrontEndHelpers {
 			esc_attr( $minutes_read )
 		);
 	}
+
+	/**
+	 * Gives the first letters of the first and last names.
+	 *
+	 * @param string $full_name User name.
+	 *
+	 * @return string
+	 */
+	public static function get_avatar_name_chars( string $full_name ): string {
+
+		$string = explode( ' ', $full_name );
+
+		return strtoupper( str_split( $string[0] )[0] . ' ' . str_split( $string[1] )[0] );
+	}
 }

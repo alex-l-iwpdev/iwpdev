@@ -15,8 +15,8 @@ $arg = [
 ];
 
 if ( is_singular( 'post' ) ) {
-	$current_post         = get_the_ID();
-	$args['post__not_in'] = [ $current_post ];
+	$current_post        = get_the_ID();
+	$arg['post__not_in'] = [ $current_post ];
 }
 
 $post_query = new WP_Query( $arg );
@@ -42,7 +42,7 @@ if ( $post_query->have_posts() ) {
 		?>
 		<a
 				class="button icon-chevron-right"
-				href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ); ?>">
+				href="/blog">
 			<?php esc_html_e( 'All Posts', 'iwpdev' ); ?>
 		</a>
 	</div>

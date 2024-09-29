@@ -8,6 +8,8 @@
 namespace Iwpdev\Theme;
 
 use Carbon_Fields\Carbon_Fields;
+use DOMDocument;
+use DOMXPath;
 use Iwpdev\Theme\Blocks\GutenbergBlocks;
 use WP_Query;
 
@@ -53,6 +55,7 @@ class Main {
 		// filters.
 		add_filter( 'get_custom_logo', [ $this, 'output_logo' ] );
 		add_filter( 'mime_types', [ $this, 'add_support_mimes' ] );
+		add_filter( 'wpcf7_form_elements', [ $this, 'delete_span_el' ] );
 
 		// Int classes.
 		new GutenbergBlocks();
@@ -75,6 +78,7 @@ class Main {
 
 		wp_enqueue_script( 'iwp_gsap', $url . '/assets/js/gsap.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_highlightjs', '//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js', [ 'jquery' ], '11.10.0', true );
+		wp_enqueue_script( 'iwp_highlightjs_numbers', $url . '/assets/js/highlightjs-line-numbers.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_scroll_trigger', $url . '/assets/js/ScrollTrigger.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_scroll_smoother', $url . '/assets/js/ScrollSmoother.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_slick', $url . '/assets/js/slick.min.js', [ 'jquery' ], self::IWP_VERSION, true );
@@ -203,11 +207,45 @@ class Main {
 		}
 	}
 
+	/**
+	 * Fix 404 error on pagination.
+	 *
+	 * @param WP_Query $q WP Query.
+	 *
+	 * @return void
+	 */
 	public function fix_404_error( WP_Query $q ): void {
 		if ( is_admin() || ! $q->is_main_query() || ! is_post_type_archive( 'portfolio' ) ) {
 			return;
 		}
-		
+
 		$q->set( 'posts_per_page', $q->query_vars['paged'] );
+	}
+
+	/**
+	 * Delete span element in contact form.
+	 *
+	 * @param string $content Content.
+	 *
+	 * @return false|string
+	 */
+	public function delete_span_el( string $content ) {
+		// Включаем внутренние ошибки для libxml
+		libxml_use_internal_errors( true );
+
+		$dom                     = new DOMDocument();
+		$dom->preserveWhiteSpace = false;
+
+		$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+
+		$xpath = new DomXPath( $dom );
+		$spans = $xpath->query( "//span[contains(@class, 'wpcf7-form-control-wrap')]" );
+
+		foreach ( $spans as $span ) {
+			$children = $span->firstChild;
+			$span->parentNode->replaceChild( $children, $span );
+		}
+
+		return $dom->saveHTML();
 	}
 }

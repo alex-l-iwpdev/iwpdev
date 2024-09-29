@@ -21,7 +21,7 @@ if ( ! empty( $fields['iwp_services'] ) ) {
 					</a>
 				</h3>
 				<?php echo wp_kses_post( wpautop( $item['service_description'] ) ); ?>
-				<a class="button icon-mail" href="#">
+				<a class="button icon-mail" href="<?php echo esc_url( $item['service_link'] ); ?>">
 					<?php esc_html_e( 'Request a Quote', 'iwpdev' ); ?>
 				</a>
 			</div>

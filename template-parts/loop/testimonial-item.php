@@ -5,6 +5,8 @@
  * @package iwpdev/theme
  */
 
+use Iwpdev\Theme\Helpers\FrontEndHelpers;
+
 $testimonial_id = $args['testimonial_id'];
 $avatar         = wp_get_attachment_image( carbon_get_post_meta( $testimonial_id, 'iwp_avatar' ) ?? 0, 'thumbnail', '', [ 'alt' => get_the_title( $testimonial_id ) ] );
 ?>
@@ -14,7 +16,7 @@ $avatar         = wp_get_attachment_image( carbon_get_post_meta( $testimonial_id
 		if ( ! empty( $avatar ) ) {
 			echo wp_kses_post( $avatar );
 		} else {
-			printf( '<img src="%s" alt="%s">', esc_url( 'https://ui-avatars.com/api/?name=John+Doe' ), esc_html__( 'No Image', 'iwpdev' ) );
+			printf( '<div class="no-avatar">%s</div>', esc_html( FrontEndHelpers::get_avatar_name_chars( get_the_title( $testimonial_id ) ) ) );
 		}
 		?>
 		<div class="desc">
