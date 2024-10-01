@@ -109,50 +109,85 @@ jQuery(document).ready(function ($) {
             scrollTop: scrollNextRow.offset().top
         }, 1000);
     });
-    //    $('a[href*=#]:not([href=#]), a[href*=#]:not(.icon-arrow-down)').click(function () {
-    //        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-    //            var target = $(this.hash);
-    //            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    //            if (target.length) {
-    //                $('html,body').animate({
-    //                    scrollTop: target.offset().top
-    //                }, 1000);
-    //                return false;
-    //            }
-    //        }
-    //    });
-    var buttonCopy = '<button class="copy-code-button"> Copy <i class="icon-copy"></i></button>';
-    var codeBlock = $('section .container code');
-    if (codeBlock.length) {
-        codeBlock.each(function () {
-            hljs.highlightBlock(this);
-            $(this).after(buttonCopy);
-        });
-
-        hljs.initLineNumbersOnLoad();
-        codeBlock.dblclick(function () {
-            var range = document.createRange();
-            range.selectNodeContents(this);
-            var selection = window.getSelection();
-            console.log(range.selectNodeContents(this));
-            selection.removeAllRanges();
-            selection.addRange(range);
-        });
-        var copyCodeButtons = document.querySelectorAll(".copy-code-button");
-        var allCodes = document.getElementsByTagName("code");
-        var i = 0;
-
-        for (i = 0; i < copyCodeButtons.length; i++) {
-            copyCodeButtons[i].addEventListener("click", function (e) {
-                var code = e.target.parentElement.getElementsByTagName("code")[0];
-                var originalText = 'Copy&nbsp;<i class="icon-copy"></i>';
-                setTimeout(function () {
-                    e.preventDefault();
-                    e.target.innerHTML = originalText;
-                }, 2000);
-                e.target.innerHTML = 'copied&nbsp<i class="icon-check"></i>';
-            });
+    $('a[href*="#"]:not([href="#"]), a[href*="#"]:not(.icon-arrow-down)').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
         }
+    });
+    var codeBlocks = $('.wp-block-code code');
+    if (codeBlocks.length) {
+        var COPY_TEXT_CHANGE_OFFSET = 1000;
+        var COPY_BUTTON_TEXT_BEFORE = "Copy";
+        var COPY_BUTTON_TEXT_AFTER = "Copied";
+        var COPY_ERROR_MESSAGE = "No copy";
+        var codeWrappers = document.querySelectorAll(".wp-block-code ");
+        var copyBlockCode = async function copyBlockCode() {
+            var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+            if (!target) return;
+            try {
+                var code = decodeURI(target.dataset.code);
+                await navigator.clipboard.writeText(code);
+                target.textContent = COPY_BUTTON_TEXT_AFTER;
+                setTimeout(function () {
+                    target.textContent = COPY_BUTTON_TEXT_BEFORE;
+                }, COPY_TEXT_CHANGE_OFFSET);
+            } catch (error) {
+                alert(COPY_ERROR_MESSAGE);
+                console.error(error);
+            }
+        };
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = codeWrappers[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var codeWrapper = _step.value;
+
+                var codeBlock = codeWrapper.querySelector(".wp-block-code code");
+                var codes = codeBlock.innerHTML;
+                console.log(codeBlock);
+                var copyButton = '<button type="button" class="copy-btn icon-copy" data-code="' + encodeURI(codeBlock.textContent) + '"> ' + COPY_BUTTON_TEXT_BEFORE + '</button>';
+                var codeBody = '<div class="code-body"><div class="code-text">' + codes + '</div></div>';
+                var codeHeader = '\n            <div class="code-header">\n                <span class="red btn"></span>\n                <span class="yellow btn"></span>\n                <span class="green btn"></span>\n                ' + copyButton + '\n            </div>';
+                codeBlock.innerHTML = codeHeader + codeBody;
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+
+        $('.copy-btn').click(function () {
+            copyBlockCode(this);
+        });
+        //        for (var pres = document.querySelectorAll(".wp-block-code .code-body"), i = 0; i < pres.length; i++) pres[i].addEventListener("dblclick", function() {
+        //            var e = getSelection(),
+        //                t = document.createRange();
+        //            t.selectNodeContents(this), e.removeAllRanges(), e.addRange(t)
+        //        }, !1);
+
+        document.querySelectorAll('.wp-block-code .code-body').forEach(function (block) {
+            hljs.highlightBlock(block);
+            hljs.initLineNumbersOnLoad();
+        });
     }
     var faqItem = $('.faq-item .icon-chevron');
     faqItem.click(function () {
