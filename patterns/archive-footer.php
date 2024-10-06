@@ -13,7 +13,7 @@
 		<div class="row align-items-center">
 			<div class="col-auto"><!-- wp:site-logo {"width":100 } /--></div>
 			<div class="col">
-				<!-- wp:navigation {"ref":9109,"overlayMenu":"never","className":"menu","layout":{"type":"flex","flexWrap":"wrap"}} /-->
+				<!-- wp:carbon-fields/nave-menu {"data":{"nav_menu":"footer-menu"}} /-->
 			</div>
 			<div class="col-auto">
 				<!-- wp:navigation {"ref":8973,"overlayMenu":"never","className":"soc","layout":{"type":"flex","flexWrap":"wrap"}} /-->

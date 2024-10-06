@@ -119,4 +119,23 @@ class BackEndHelpers {
 		return 0;
 	}
 
+	/**
+	 * Get name menu
+	 *
+	 * @return array
+	 */
+	public static function get_name_menu(): array {
+		$menus = wp_get_nav_menus();
+		if ( empty( $menus ) || is_wp_error( $menus ) ) {
+			return [];
+		}
+
+		$menu_array = [];
+		foreach ( $menus as $menu ) {
+			$menu_array[ $menu->slug ] = $menu->name;
+		}
+
+		return $menu_array;
+	}
+
 }

@@ -395,5 +395,33 @@ class GutenbergBlocks {
 				);
 			}
 		);
+
+		// Nav menu.
+		Block::make(
+			__( 'Nave menu', 'iwpdev' )
+		)->add_fields(
+			[
+				Field::make(
+					'select',
+					'nav_menu',
+					__( 'Menu', 'iwpdev' )
+				)->set_options( BackEndHelpers::get_name_menu() ),
+			]
+		)->set_category(
+			'iwpdev',
+			'IWPDEV',
+			'editor-code'
+		)->set_render_callback(
+			function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/nav',
+					'menu',
+					[
+						'attributes' => $attributes,
+						'fields'     => $fields,
+					]
+				);
+			}
+		);
 	}
 }

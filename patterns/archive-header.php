@@ -13,7 +13,7 @@
 		<div class="row align-items-center">
 			<div class="col-auto"><!-- wp:site-logo {"width":100 } /--></div>
 			<div class="col d-flex align-items-center">
-				<!-- wp:navigation {"ref":9104,"overlayMenu":"never","className":"menu","layout":{"type":"flex","flexWrap":"wrap"}} /-->
+				<!-- wp:carbon-fields/nave-menu {"data":{"nav_menu":"main-menu"}} /-->
 				<div class="burger-menu">
 					<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
 				</div>
