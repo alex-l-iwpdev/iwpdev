@@ -77,8 +77,8 @@ class Main {
 		}
 
 		wp_enqueue_script( 'iwp_gsap', $url . '/assets/js/gsap.min.js', [], self::IWP_VERSION, true );
-		wp_enqueue_script( 'iwp_highlightjs', '//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js', [ 'jquery' ], '11.10.0', true );
-		wp_enqueue_script( 'iwp_highlightjs_numbers', $url . '/assets/js/highlightjs-line-numbers.min.js', [], self::IWP_VERSION, true );
+		wp_enqueue_script( 'iwp_highlight',  'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js', [], self::IWP_VERSION, true );
+		wp_enqueue_script( 'highlightjs_line_numbers', $url . '/assets/js/highlightjs-line-numbers.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_scroll_trigger', $url . '/assets/js/ScrollTrigger.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_scroll_smoother', $url . '/assets/js/ScrollSmoother.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_slick', $url . '/assets/js/slick.min.js', [ 'jquery' ], self::IWP_VERSION, true );
