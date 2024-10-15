@@ -21,7 +21,6 @@ if ( is_front_page() ) {
 			name="viewport"
 			id="viewport"
 			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<title><?php bloginfo( 'name' ); ?> | <?php bloginfo( 'description' ); ?></title>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class( $body_classes ); ?>>

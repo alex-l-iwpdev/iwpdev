@@ -47,8 +47,8 @@
 			</div>
 			<div class="col">
 				<ul class="menu">
-					<li><a href="#">Terms of Service</a></li>
-					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="<?php echo esc_url( get_the_permalink( '9231' ) ); ?>">Terms of use</a></li>
+					<li><a href="<?php echo esc_url( get_privacy_policy_url() ); ?>">Privacy Policy</a></li>
 				</ul>
 			</div>
 		</div>
