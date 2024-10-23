@@ -21,7 +21,7 @@ class Main {
 	/**
 	 * Theme version.
 	 */
-	const IWP_VERSION = '1.0.0';
+	const IWP_VERSION = '1.0.1';
 
 	/**
 	 * Review table name.
@@ -77,7 +77,7 @@ class Main {
 		}
 
 		wp_enqueue_script( 'iwp_gsap', $url . '/assets/js/gsap.min.js', [], self::IWP_VERSION, true );
-		wp_enqueue_script( 'iwp_highlight',  'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js', [], self::IWP_VERSION, true );
+		wp_enqueue_script( 'iwp_highlight', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'highlightjs_line_numbers', $url . '/assets/js/highlightjs-line-numbers.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_scroll_trigger', $url . '/assets/js/ScrollTrigger.min.js', [], self::IWP_VERSION, true );
 		wp_enqueue_script( 'iwp_scroll_smoother', $url . '/assets/js/ScrollSmoother.min.js', [], self::IWP_VERSION, true );

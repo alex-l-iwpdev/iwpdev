@@ -1618,6 +1618,9 @@ p:empty {
 	transition: width 0.6s ease;
 }
 
+/**
+Terms
+ */
 .wp-block-term-description {
 	width: 80%;
 	margin: 0 auto;
