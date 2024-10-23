@@ -22,6 +22,8 @@ if ( is_front_page() ) {
 			id="viewport"
 			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<?php wp_head(); ?>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4168099544905709"
+			crossorigin="anonymous"></script>
 </head>
 <body <?php body_class( $body_classes ); ?>>
 <div class="wrapper">

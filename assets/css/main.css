@@ -1618,6 +1618,12 @@ p:empty {
 	transition: width 0.6s ease;
 }
 
+.wp-block-term-description {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.progress-bar {
 		transition: none;

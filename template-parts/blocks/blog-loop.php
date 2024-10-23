@@ -72,7 +72,7 @@ $articles_object = new WP_Query( $post_arg );
 							'current' => max( 1, get_query_var( 'paged' ) ),
 							'total'   => $articles_object->max_num_pages,
 						]
-					)
+					) ?? ''
 				);
 				?>
 			</div>

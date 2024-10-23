@@ -8,12 +8,26 @@
 $fields     = $args['fields'];
 $attributes = $args['attributes'];
 
-$arg             = [
+$arg       = [
 	'post_type'      => 'portfolio',
 	'post_status'    => 'publish',
 	'posts_per_page' => $fields['posts_per_page'],
 	'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
 ];
+$query_obj = get_queried_object();
+
+if ( ! empty( $query_obj ) && ! is_wp_error( $query_obj ) ) {
+	//phpcs:disable
+	$arg['tax_query'] = [
+		[
+			'taxonomy' => $query_obj->taxonomy,
+			'field'    => 'id',
+			'terms'    => $query_obj->term_id,
+		],
+	];
+	//phpcs:enable
+}
+
 $portfolio_query = new WP_Query( $arg );
 
 ?>
@@ -45,7 +59,7 @@ $portfolio_query = new WP_Query( $arg );
 							'current' => max( 1, get_query_var( 'paged' ) ),
 							'total'   => $portfolio_query->max_num_pages,
 						]
-					)
+					) ?? ''
 				);
 				?>
 			</div>

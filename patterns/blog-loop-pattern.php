@@ -13,7 +13,6 @@
 		<!-- wp:heading {"className":"title top"} -->
 		<h2 class="wp-block-heading title"><?php echo isset( get_queried_object()->term_id ) ? esc_html__( 'Category: ', 'iwpdev' ) . esc_html( get_queried_object()->name ) : ''; ?></h2>
 		<!-- /wp:heading -->
-
 		<!-- wp:carbon-fields/blog-loop {"data":{"count_to_row":"3","posts_per_page":"12","order":"DESC","category":[],"tags":[],"order_by":"date"}} /-->
 	</div>
 	<!-- /wp:column --></div>
