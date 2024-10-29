@@ -47,7 +47,7 @@ $id_post = get_the_ID();
 					the_excerpt();
 
 					if ( has_post_thumbnail( $id_post ) ) {
-						the_post_thumbnail( 'single_post_thumbnail' );
+						the_post_thumbnail( 'single_post_thumbnail', [ 'alt' => esc_attr( get_the_title( $id_post ) ) ] );
 					}
 					?>
 					<div class="content-text">

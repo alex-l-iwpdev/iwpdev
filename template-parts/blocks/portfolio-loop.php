@@ -16,7 +16,7 @@ $arg       = [
 ];
 $query_obj = get_queried_object();
 
-if ( ! empty( $query_obj ) && ! is_wp_error( $query_obj ) ) {
+if ( ! empty( $query_obj->taxonomy ) && ! is_wp_error( $query_obj ) ) {
 	//phpcs:disable
 	$arg['tax_query'] = [
 		[

@@ -13,7 +13,7 @@ $post_term = wp_get_post_terms( $id_post, 'category' );
 	<a class="link" href="<?php the_permalink(); ?>"></a>
 	<?php
 	if ( has_post_thumbnail( $id_post ) ) {
-		the_post_thumbnail( 'post_thumbnail' );
+		the_post_thumbnail( 'post_thumbnail', [ 'alt' => get_the_title( $id_post ) ] );
 	} else {
 		printf( '<img src="%s" alt="%s" />', esc_url( 'https://placehold.co/411x231' ), esc_html__( 'No Image', 'iwpdev' ) );
 	}
