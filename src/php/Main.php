@@ -94,6 +94,7 @@ class Main {
 		wp_enqueue_style( 'iwp_slick_theme', $url . '/assets/css/slick-theme' . $min . '.css', '', self::IWP_VERSION );
 		wp_enqueue_style( 'iwp_github_dark', $url . '/assets/css/github-dark' . $min . '.css', '', self::IWP_VERSION );
 		wp_enqueue_style( 'iwp_main', $url . '/assets/css/main' . $min . '.css', '', self::IWP_VERSION );
+		wp_enqueue_style( 'iwp_main_styles', $url . '/style.css', '', self::IWP_VERSION );
 	}
 
 	/**
@@ -119,6 +120,8 @@ class Main {
 		// add custom logo.
 		add_theme_support( 'custom-logo', [ 'unlink-homepage-logo' => true ] );
 		add_theme_support( 'post-thumbnails' );
+
+		load_theme_textdomain( 'iwpdev', get_template_directory() . '/languages' );
 
 		// carbone fields init.
 		Carbon_Fields::boot();

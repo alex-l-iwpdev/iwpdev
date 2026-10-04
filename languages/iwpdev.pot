@@ -1,0 +1,564 @@
+# Copyright (C) 2026 Alex L
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: I WP Dev 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/i-wp-dev\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-04T12:57:59+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: iwpdev\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "I WP Dev"
+msgstr ""
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css
+msgid "https://i-wp-dev.com"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "I WP DEV Theme."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Alex L"
+msgstr ""
+
+#: 404.php:17
+msgid "Page Not Found"
+msgstr ""
+
+#: 404.php:19
+msgid "Go back Home"
+msgstr ""
+
+#: comments.php:41
+msgid "Star"
+msgstr ""
+
+#: patterns/archive-footer.php
+msgctxt "Pattern title"
+msgid "Archive footer"
+msgstr ""
+
+#: patterns/archive-header.php
+msgctxt "Pattern title"
+msgid "Archive header"
+msgstr ""
+
+#: patterns/blog-loop-pattern.php
+msgctxt "Pattern title"
+msgid "Blog loop."
+msgstr ""
+
+#: patterns/blog-loop-pattern.php:14
+#: patterns/portfolio-loop-pattern.php:14
+msgid "Category: "
+msgstr ""
+
+#: patterns/main-banner.php
+msgctxt "Pattern title"
+msgid "Main banner"
+msgstr ""
+
+#: patterns/portfolio-loop-pattern.php
+msgctxt "Pattern title"
+msgid "Portfolio loop."
+msgstr ""
+
+#: patterns/portfolio.php
+msgctxt "Pattern title"
+msgid "Portfolio"
+msgstr ""
+
+#: patterns/post.php
+msgctxt "Pattern title"
+msgid "Post"
+msgstr ""
+
+#: single.php:33
+#: template-parts/loop/blog-item.php:23
+msgid "Category:"
+msgstr ""
+
+#: single.php:41
+msgid "No category"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:44
+msgid "Main banner"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:47
+#: src/php/Blocks/GutenbergBlocks.php:226
+#: src/php/Blocks/GutenbergBlocks.php:282
+#: src/php/Blocks/GutenbergBlocks.php:336
+#: src/php/Blocks/GutenbergBlocks.php:377
+msgid "Title"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:48
+#: src/php/Blocks/GutenbergBlocks.php:378
+msgid "Description"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:49
+msgid "Button text"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:50
+msgid "Button link"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:51
+msgid "Image"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:72
+msgid "Icon items"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:78
+msgid "Icons"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:81
+msgid "Icon class"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:104
+#: src/php/Blocks/GutenbergBlocks.php:110
+msgid "Services"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:113
+msgid "Icon name"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:114
+msgid "Services title"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:115
+msgid "Services description"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:116
+msgid "Services Link"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:139
+#: src/php/CPT.php:110
+#: src/php/CPT.php:111
+#: src/php/CPT.php:121
+msgid "Portfolio"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:145
+msgid "Portfolio items"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:174
+#: src/php/CarbonFields.php:41
+#: src/php/CPT.php:153
+#: src/php/CPT.php:154
+#: src/php/CPT.php:164
+msgid "Testimonials"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:177
+#: src/php/Blocks/GutenbergBlocks.php:202
+msgid "Count output"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:178
+msgid "Count in row output"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:199
+msgid "Blog"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:223
+msgid "CTA"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:227
+msgid "Sub title"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:228
+msgid "Form short code"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:249
+msgid "Blog loop"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:252
+msgid "Count to row"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:253
+#: src/php/Blocks/GutenbergBlocks.php:317
+msgid "Post per page"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:257
+#: src/php/Blocks/GutenbergBlocks.php:321
+msgid "Order"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:260
+#: src/php/Blocks/GutenbergBlocks.php:324
+msgid "Ascending"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:261
+#: src/php/Blocks/GutenbergBlocks.php:325
+msgid "Descending"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:267
+msgid "Category"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:272
+msgid "Tags"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:277
+#: src/php/Blocks/GutenbergBlocks.php:331
+msgid "Order by"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:280
+#: src/php/Blocks/GutenbergBlocks.php:334
+msgid "ID"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:281
+#: src/php/Blocks/GutenbergBlocks.php:335
+msgid "Author"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:283
+#: src/php/Blocks/GutenbergBlocks.php:337
+msgid "Name"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:284
+#: src/php/Blocks/GutenbergBlocks.php:338
+msgid "Date"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:285
+#: src/php/Blocks/GutenbergBlocks.php:339
+msgid "Modified"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:286
+#: src/php/Blocks/GutenbergBlocks.php:340
+msgid "Parent"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:287
+#: src/php/Blocks/GutenbergBlocks.php:341
+msgid "Rand"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:288
+#: src/php/Blocks/GutenbergBlocks.php:342
+msgid "Comment count"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:289
+#: src/php/Blocks/GutenbergBlocks.php:343
+msgid "Post in"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:290
+#: src/php/Blocks/GutenbergBlocks.php:344
+msgid "Post name in"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:291
+#: src/php/Blocks/GutenbergBlocks.php:345
+msgid "Post parent in"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:314
+msgid "Portfolio loop"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:368
+msgid "FAQ"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:374
+msgid "FAQs"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:401
+msgid "Nave menu"
+msgstr ""
+
+#: src/php/Blocks/GutenbergBlocks.php:407
+msgid "Menu"
+msgstr ""
+
+#: src/php/CarbonFields.php:48
+msgid "Position"
+msgstr ""
+
+#: src/php/CarbonFields.php:49
+msgid "Avatar image"
+msgstr ""
+
+#: src/php/CarbonFields.php:53
+msgid "Platform review"
+msgstr ""
+
+#: src/php/CarbonFields.php:58
+msgid "Platform review link"
+msgstr ""
+
+#: src/php/CPT.php:44
+#: src/php/CPT.php:55
+msgid "Portfolio Categories"
+msgstr ""
+
+#: src/php/CPT.php:45
+msgid "Portfolio Category"
+msgstr ""
+
+#: src/php/CPT.php:46
+msgid "Search Portfolio Categories"
+msgstr ""
+
+#: src/php/CPT.php:47
+msgid "All Portfolio Categories"
+msgstr ""
+
+#: src/php/CPT.php:48
+msgid "View Portfolio Category"
+msgstr ""
+
+#: src/php/CPT.php:49
+msgid "Parent Portfolio Category"
+msgstr ""
+
+#: src/php/CPT.php:50
+msgid "Parent Portfolio Category:"
+msgstr ""
+
+#: src/php/CPT.php:51
+msgid "Edit Portfolio Category"
+msgstr ""
+
+#: src/php/CPT.php:52
+msgid "Update Portfolio Category"
+msgstr ""
+
+#: src/php/CPT.php:53
+msgid "Add New Portfolio Category"
+msgstr ""
+
+#: src/php/CPT.php:54
+msgid "New Portfolio Category Name"
+msgstr ""
+
+#: src/php/CPT.php:56
+msgid "Back to Portfolio Categories"
+msgstr ""
+
+#: src/php/CPT.php:74
+#: src/php/CPT.php:75
+#: src/php/CPT.php:85
+msgid "Portfolio Industry"
+msgstr ""
+
+#: src/php/CPT.php:76
+msgid "Search Portfolio Industry"
+msgstr ""
+
+#: src/php/CPT.php:77
+msgid "All Portfolio Industry"
+msgstr ""
+
+#: src/php/CPT.php:78
+msgid "View Portfolio Industry"
+msgstr ""
+
+#: src/php/CPT.php:79
+msgid "Parent Portfolio Industry"
+msgstr ""
+
+#: src/php/CPT.php:80
+msgid "Parent Portfolio Industry:"
+msgstr ""
+
+#: src/php/CPT.php:81
+msgid "Edit Portfolio Industry"
+msgstr ""
+
+#: src/php/CPT.php:82
+msgid "Update Portfolio Industry"
+msgstr ""
+
+#: src/php/CPT.php:83
+msgid "Add New Portfolio Industry"
+msgstr ""
+
+#: src/php/CPT.php:84
+msgid "New Portfolio Industry Name"
+msgstr ""
+
+#: src/php/CPT.php:86
+msgid "Back to Portfolio Industry"
+msgstr ""
+
+#: src/php/CPT.php:112
+msgid "Add Portfolio"
+msgstr ""
+
+#: src/php/CPT.php:113
+msgid "Add New Portfolio"
+msgstr ""
+
+#: src/php/CPT.php:114
+msgid "Edit Portfolio"
+msgstr ""
+
+#: src/php/CPT.php:115
+msgid "New Portfolio"
+msgstr ""
+
+#: src/php/CPT.php:116
+msgid "View Portfolio"
+msgstr ""
+
+#: src/php/CPT.php:117
+msgid "Search Portfolio"
+msgstr ""
+
+#: src/php/CPT.php:118
+msgid "No Portfolio found"
+msgstr ""
+
+#: src/php/CPT.php:119
+msgid "No Portfolio found in Trash"
+msgstr ""
+
+#: src/php/CPT.php:120
+msgid "Parent Portfolio:"
+msgstr ""
+
+#: src/php/CPT.php:155
+msgid "Add Testimonials"
+msgstr ""
+
+#: src/php/CPT.php:156
+msgid "Add New Testimonials"
+msgstr ""
+
+#: src/php/CPT.php:157
+msgid "Edit Testimonials"
+msgstr ""
+
+#: src/php/CPT.php:158
+msgid "New Testimonials"
+msgstr ""
+
+#: src/php/CPT.php:159
+msgid "View Testimonials"
+msgstr ""
+
+#: src/php/CPT.php:160
+msgid "Search Testimonials"
+msgstr ""
+
+#: src/php/CPT.php:161
+msgid "No Testimonials found"
+msgstr ""
+
+#: src/php/CPT.php:162
+msgid "No Testimonials found in Trash"
+msgstr ""
+
+#: src/php/CPT.php:163
+msgid "Parent Testimonials:"
+msgstr ""
+
+#. translators: %s: read time.
+#: src/php/Helpers/FrontEndHelpers.php:33
+msgid "Read tyme: %d min"
+msgstr ""
+
+#: src/php/Main.php:110
+msgid "Main Menu"
+msgstr ""
+
+#: src/php/Main.php:111
+msgid "Footer Menu"
+msgstr ""
+
+#: template-parts/blocks/blog-block.php:46
+msgid "All Posts"
+msgstr ""
+
+#: template-parts/blocks/blog-loop.php:82
+msgid "Post not found."
+msgstr ""
+
+#: template-parts/blocks/services-block.php:25
+msgid "Request a Quote"
+msgstr ""
+
+#: template-parts/loop/blog-item.php:18
+#: template-parts/loop/portfolio-item.php:18
+msgid "No Image"
+msgstr ""
+
+#: template-parts/loop/portfolio-item.php:26
+msgid "Solution"
+msgstr ""
+
+#: template-parts/loop/portfolio-item.php:37
+msgid "Industry"
+msgstr ""
+
+#: template-parts/loop/testimonial-item.php:33
+msgid "Platform  : "
+msgstr ""
+
+#: template-parts/loop/testimonial-item.php:40
+msgid "Original review"
+msgstr ""
+
+#: template-parts/single/review-form.php:20
+msgid "Full Name"
+msgstr ""
+
+#: template-parts/single/review-form.php:24
+msgid "Add review"
+msgstr ""
+
+#: template-parts/single/review-form.php:33
+msgid "Comment"
+msgstr ""
+
+#: template-parts/single/review-form.php:37
+msgid "Add Comment"
+msgstr ""
