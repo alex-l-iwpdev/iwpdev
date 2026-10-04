@@ -36,20 +36,21 @@ if ( is_front_page() ) {
 						<?php
 						if ( has_nav_menu( 'header_menu' ) ) {
 							wp_nav_menu(
-								[
-									'theme_location' => 'header_menu',
-									'container'      => '',
-									'menu_class'     => 'menu',
-									'echo'           => true,
-									'fallback_cb'    => 'wp_page_menu',
-									'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-								]
+									[
+											'theme_location' => 'header_menu',
+											'container'      => '',
+											'menu_class'     => 'menu',
+											'echo'           => true,
+											'fallback_cb'    => 'wp_page_menu',
+											'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									]
 							);
 						}
 						?>
 						<div class="burger-menu">
 							<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
 						</div>
+						<?php echo do_shortcode( '[polylang_langswitcher]' ); ?>
 					</div>
 				</div>
 			</div>

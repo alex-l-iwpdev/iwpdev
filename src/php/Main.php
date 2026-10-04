@@ -21,7 +21,7 @@ class Main {
 	/**
 	 * Theme version.
 	 */
-	const IWP_VERSION = '1.0.1';
+	const IWP_VERSION = '1.1.0';
 
 	/**
 	 * Review table name.
@@ -56,6 +56,7 @@ class Main {
 		add_filter( 'get_custom_logo', [ $this, 'output_logo' ] );
 		add_filter( 'mime_types', [ $this, 'add_support_mimes' ] );
 		add_filter( 'wpcf7_form_elements', [ $this, 'delete_span_el' ] );
+		add_shortcode( 'polylang_langswitcher', [ $this, 'custom_polylang_langswitcher' ] );
 
 		// Int classes.
 		new GutenbergBlocks();
@@ -251,5 +252,26 @@ class Main {
 		}
 
 		return $dom->saveHTML();
+	}
+
+	/**
+	 * Custom polylang language switcher.
+	 *
+	 * @return string
+	 */
+	public static function custom_polylang_langswitcher(): string {
+		$output = '';
+		if ( function_exists( 'pll_the_languages' ) ) {
+			$args   = [
+				'show_flags'       => false,
+				'show_names'       => false,
+				'echo'             => false,
+				'dropdown'         => true,
+				'display_names_as' => 'slug',
+			];
+			$output = '<div class="polylang_langswitcher">' . pll_the_languages( $args ) . '</div>';
+		}
+
+		return $output;
 	}
 }
